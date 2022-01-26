@@ -16,6 +16,6 @@ public class LoginController {
     // 로그인 할때 받아주는 부분
     @PostMapping("/login")
     public String postLogin(Model model) {
-        return "login/login";
+        return "login/home";
     }
 }

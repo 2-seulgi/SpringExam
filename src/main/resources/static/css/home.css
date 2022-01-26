@@ -1,16 +1,9 @@
 body {
-    padding-top: 50px;
-}
-.sidebar {
-    position: fixed;
-    display: block;
-    top: 70px;
-    bottom: 0;
-    background-color: #F4F5F7;
+    padding-top: 0px;
 }
 .main {
-    padding-top: 50px;
-    padding-left: 20px;
+    padding-top: 60px;
+    padding-left: 40px;
     position: fixed;
     display: block;
     top: 0px;
