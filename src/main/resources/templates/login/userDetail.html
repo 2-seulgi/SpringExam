@@ -11,12 +11,11 @@
             <div class="page-header">
                 <h1>사용자 상세정보</h1>
             </div>
-            <form method="post" th:action="@{/userDetail}"
-                  th:object="${signupForm}">
+            <form method="post" th:action="@{/userDetail}" th:object="${signupForm}">
                 <table class="table table-bordered table-hover">
                     <tr>
-                        <!-- 사용자 ID(입력불가) -->
-                        <th class="active col-sm-2">사용자 ID</th>
+                        <!-- 사용자ID(입력불가) -->
+                        <th class="active col-sm-2">사용자ID</th>
                         <td class="col-sm-3">
                             <div class="form-group">
                                 <input type="text" class="form-control"
@@ -30,14 +29,14 @@
                         <th class="active">비밀번호</th>
                         <td>
                             <div class="form-group"
-
                                  th:classappend="${#fields.hasErrors('password')} ? 'has-error'">
                                 <input type="text" class="form-control"
                                        th:field="*{password}" />
                                 <span class="text-danger"
-
                                       th:if="${#fields.hasErrors('password')}"
-                                      th:errors="*{password}">password error</span>
+                                      th:errors="*{password}">
+                                        password error
+                                    </span>
                             </div>
                         </td>
                     </tr>
@@ -46,14 +45,14 @@
                         <th class="active">사용자명</th>
                         <td>
                             <div class="form-group"
-
                                  th:classappend="${#fields.hasErrors('userName')} ? 'has-error'">
                                 <input type="text" class="form-control"
                                        th:field="*{userName}" />
                                 <span class="text-danger"
-
                                       th:if="${#fields.hasErrors('userName')}"
-                                      th:errors="*{userName}">userName error</span>
+                                      th:errors="*{userName}">
+                                        userName error
+                                    </span>
                             </div>
                         </td>
                     </tr>
@@ -62,15 +61,15 @@
                         <th class="active">생년월일</th>
                         <td>
                             <div class="form-group"
-
                                  th:classappend="${#fields.hasErrors('birthday')} ? 'has-error'">
                                 <input type="text" class="form-control"
                                        placeholder="yyyy/MM/dd"
                                        th:field="*{birthday}" />
                                 <span class="text-danger"
-
                                       th:if="${#fields.hasErrors('birthday')}"
-                                      th:errors="*{birthday}">birthday error</span>
+                                      th:errors="*{birthday}">
+                                        birthday error
+                                    </span>
                             </div>
                         </td>
                     </tr>
@@ -79,13 +78,14 @@
                         <th class="active">나이</th>
                         <td>
                             <div class="form-group"
-
                                  th:classappend="${#fields.hasErrors('age')} ? 'has-error'">
                                 <input type="text" class="form-control"
                                        th:field="*{age}" />
                                 <span class="text-danger"
                                       th:if="${#fields.hasErrors('age')}"
-                                      th:errors="*{age}">age error</span>
+                                      th:errors="*{age}">
+                                        age error
+                                    </span>
                             </div>
                         </td>
                     </tr>
@@ -95,27 +95,30 @@
                         <td>
                             <div class="form-group">
                                 <div th:each="item : ${radioMarriage}">
-                                    <input type="radio"
-                                           name="radioMarrige"
+                                    <input type="radio" name="radioMarrige"
                                            th:value="${item.value}"
                                            th:text="${item.key}"
                                            th:field="*{marriage}">
                                     </input>
                                 </div>
                                 <span class="text-danger"
-
                                       th:if="${#fields.hasErrors('marriage')}"
-                                      th:errors="*{marriage}">marriage error</span>
+                                      th:errors="*{marriage}">
+                                        marriage error
+                                    </span>
                             </div>
                         </td>
                     </tr>
                 </table>
-                <!-- 변경 / 삭제 -->
+                <!-- 변경 -->
                 <button class="btn btn-primary btn-lg pull-right"
                         type="submit"
-                        name="update">변경</button>
-                <button class="btn btn-danger btn-lg" type="submit"
-                        name="delete">삭제</button>
+                        name="update">
+                    변경
+                </button>
+                <button class="btn btn-danger btn-lg" type="submit" name="delete">
+                    삭제
+                </button>
             </form>
         </div>
     </div>

@@ -120,6 +120,11 @@ public class UserDaoJdbcImpl implements UserDao {
                 user.isMarriage(),
                 user.getUserId());
 
+        // 트랜젝션 확인을 위해 일부러 예외처리
+        if(rowNumber > 0) {
+            throw new DataAccessException("트랜젝션 테스트!") {};
+        }
+
         return rowNumber;
 
     }

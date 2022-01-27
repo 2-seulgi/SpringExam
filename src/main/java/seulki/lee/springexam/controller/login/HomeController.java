@@ -1,6 +1,7 @@
 package seulki.lee.springexam.controller.login;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -108,17 +109,37 @@ public class HomeController {
         user.setBirthday(form.getBirthday());
         user.setAge(form.getAge());
         user.setMarriage(form.isMarriage());
-        // 변경실행
-        boolean result = userService.updateOne(user);
-
-        if (result == true) {
-            model.addAttribute("result", "변경성공");
-        } else {
-            model.addAttribute("result", "변경실패");
+        try{
+            // 변경 실행
+            boolean result = userService.updateOne(user);
+            if (result==true) {
+                model.addAttribute("result","변경성공");
+            }else {
+                model.addAttribute("result","변경실패");
+            }
+        }catch (DataAccessException e) {
+            model.addAttribute("result", "변경실패(트랜잭션 테스트)");
         }
-        // 사용자목록화면 표시
+        // 사용자 목록화면 표시
         return getUserList(model);
+//        // 변경실행
+//        boolean result = userService.updateOne(user);
+//
+//        if (result == true) {
+//            model.addAttribute("result", "변경성공");
+//        } else {
+//            model.addAttribute("result", "변경실패");
+//        }
+//        // 사용자목록화면 표시
+//        return getUserList(model);
     }
+
+    /**
+     *  사용자 정보 1건 변경
+     * @param form
+     * @param model
+     * @return
+     */
 
     @PostMapping(value = "/userDetail", params = "delete")
     public String postUserDetailDelete(@ModelAttribute SignupForm form,

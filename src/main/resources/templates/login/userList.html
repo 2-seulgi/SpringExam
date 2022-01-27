@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org"
-
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
     <meta charset="UTF-8"></meta>
@@ -13,7 +12,7 @@
     </div>
     <table class="table table-bordered table-hover table-striped">
         <tr>
-            <th class="info col-sm-2">사용자 ID</th>
+            <th class="info col-sm-2">사용자ID</th>
             <th class="info col-sm-2">사용자명</th>
             <th class="info col-sm-2">생년월일</th>
             <th class="info col-sm-2">나이</th>
@@ -23,12 +22,12 @@
         <tr th:each="user : ${userList}">
             <td th:text="${user.userId}"></td>
             <td th:text="${user.userName}"></td>
-            <td th:text="${#dates.format(user.birthday,'YYYY/MM/dd')}"></td>
+            <td th:text="${#dates.format(user.birthday, 'YYYY/MM/dd')}"></td>
             <td th:text="${user.age}"></td>
             <td th:text="${user.marriage} ? '기혼' : '미혼'"></td>
             <td>
                 <!-- 사용자 상세ㅎ보기 링크 (동적 URL) -->
-                <a class="btn btn-primary" th:href="@{'/userDetail/' +${user.userId}}">
+                <a class="btn btn-primary" th:href="@{'/userDetail/' + ${user.userId}}">
                     상세보기
                 </a>
             </td>
@@ -38,8 +37,8 @@
     <label th:text=" '합계：' + ${userListCount} + '건' "></label><br/>
     <!-- 변경 및 삭제 처리결과 표시용 -->
     <label class="text-info" th:text="${result}">결과보기</label><br/>
-    <!-- CSV 출력용 링크 -->
-    <a class="btn btn-primary" th:href="@{'/userList/csv'}">CSV 출력</a>
+    <!-- CSV출력용 링크 -->
+    <a class="btn btn-primary" th:href="@{'/userList/csv'}">CSV출력</a>
 </div>
 </body>
 </html>
